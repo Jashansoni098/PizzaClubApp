@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Club - Interactive Menu</title>
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Splash Screen (No change) -->
+    <div id="splash-screen"><img src="Pizzaclub1.png" alt="Pizza Club Logo" class="pizza-logo-img"><h1 class="welcome-text">Welcome to Pizza Club</h1><div id="loading-container"><div id="loading-bar"></div></div></div>
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+        <div id="main-app-content" class="page">
+            <header><div class="container"><h2>Pizza Club</h2><div id="cart-icon"><i class="fas fa-shopping-bag"></i><span id="cart-count">0</span></div></div></header>
+            <main class="container"><nav id="category-tabs"></nav><div id="menu-grid"></div></main>
+        </div>
+        
+        <div id="checkout-page" class="page off-screen">
+            <!-- Checkout content remains here -->
+            <div class="checkout-header"><button id="back-to-menu-btn" class="btn-3d-small"><i class="fas fa-arrow-left"></i> Back</button><h3>Confirm Your Order</h3></div>
+            <div class="checkout-container">
+                <div class="customer-details">
+                    <h4>Delivery Details</h4>
+                    <form id="delivery-form"><input type="text" id="cust-name" placeholder="Full Name" required><input type="tel" id="cust-phone" placeholder="Phone Number" required><textarea id="cust-address" placeholder="Full Delivery Address" rows="3" required></textarea><div class="input-with-label"><label for="cust-distance">Distance from store (in km)</label><input type="number" id="cust-distance" placeholder="e.g., 2.5" required></div></form>
+                    <h4>Payment Method</h4>
+                    <div class="payment-options"><label><input type="radio" name="payment" value="cod" checked><span><i class="fas fa-money-bill-wave"></i> Cash on Delivery</span></label><label><input type="radio" name="payment" value="upi"><span><i class="fa-solid fa-qrcode"></i> UPI</span></label><label><input type="radio" name="payment" value="card"><span><i class="fas fa-credit-card"></i> Card</span></label></div>
+                    <button id="confirm-order-btn" class="btn-3d">Confirm Order</button>
+                </div>
+                <div class="order-summary">
+                    <h4>Order Summary</h4>
+                    <div id="summary-items-list"></div>
+                    <div class="summary-totals"><div><span>Subtotal</span><span id="summary-subtotal"></span></div><div><span>Delivery Fee</span><span id="summary-delivery"></span></div><div class="grand-total"><span>Grand Total</span><span id="summary-grand-total"></span></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cart Modal (UPDATED) -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Your Order</h3>
+                <!-- UPDATED: Close button is now a proper button -->
+                <button class="close-btn btn-3d-small"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="cart-items-container"></div>
+            <div class="modal-footer">
+                <div class="total-section"><span>Grand Total</span><span id="cart-total">₹0.00</span></div>
+                <button id="proceed-to-checkout-btn" class="btn-3d">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal"><div class="modal-content success-content"><i class="fas fa-check-circle success-icon"></i><h2>Order Placed Successfully!</h2><p>Your delicious pizza is on its way.</p><button id="back-to-home-btn" class="btn-3d">Order More</button></div></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
